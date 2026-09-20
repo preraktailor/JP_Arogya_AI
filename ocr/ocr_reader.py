@@ -3,43 +3,32 @@ from PIL import Image
 import pytesseract
 from pypdf import PdfReader
 
-# ----------------------------
-# Tesseract Path (Windows)
-# ----------------------------
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# Tesseract configuration
+# Windows: use installed Tesseract path
+# Linux/Render: use system "tesseract" command
+
+if os.name == "nt":
+    windows_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+    if os.path.exists(windows_tesseract):
+        pytesseract.pytesseract.tesseract_cmd = windows_tesseract
 
 
-# ----------------------------
-# Read Text From Image
-# ----------------------------
 def read_image(image_path):
-
     try:
-
         image = Image.open(image_path)
-
         text = pytesseract.image_to_string(image)
-
         return text
-
     except Exception as e:
-
         return f"OCR Error: {e}"
 
 
-# ----------------------------
-# Read Text From PDF
-# ----------------------------
 def read_pdf(pdf_path):
-
     try:
-
         reader = PdfReader(pdf_path)
-
         text = ""
 
         for page in reader.pages:
-
             page_text = page.extract_text()
 
             if page_text:
@@ -48,15 +37,10 @@ def read_pdf(pdf_path):
         return text
 
     except Exception as e:
-
         return f"PDF Error: {e}"
 
 
-# ----------------------------
-# Detect File Type
-# ----------------------------
 def extract_text(file_path):
-
     extension = os.path.splitext(file_path)[1].lower()
 
     if extension == ".pdf":
@@ -67,3 +51,4 @@ def extract_text(file_path):
 
     else:
         return "Unsupported file type."
+
