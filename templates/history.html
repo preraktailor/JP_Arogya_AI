@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>History | JP Arogya AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>🏥 JP Arogya AI</h2>
+
+        <div>
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/chat">AI Chat</a>
+            <a href="/upload">Upload</a>
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+    <div class="dashboard">
+
+        <h1>🕒 History</h1>
+
+        <p>Your previous AI chats and uploaded medical reports.</p>
+
+        <br>
+
+        <h2>💬 Chat History</h2>
+
+        {% if chats %}
+
+        {% for chat in chats %}
+
+        <div class="card">
+
+            <h3>🙋 Question</h3>
+
+            <p>{{ chat[0] }}</p>
+
+            <hr style="margin:20px 0;">
+
+            <h3>🤖 Answer</h3>
+
+            <p>{{ chat[1] }}</p>
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <div class="card">
+
+            <p>No chat history found.</p>
+
+        </div>
+
+        {% endif %}
+
+        <br><br>
+
+        <h2>📄 Medical Report History</h2>
+
+        {% if reports %}
+
+        {% for report in reports %}
+
+        <div class="card">
+
+            <h3>📄 File</h3>
+
+            <p>{{ report[0] }}</p>
+
+            <hr style="margin:20px 0;">
+
+            <h3>🤖 AI Analysis</h3>
+
+            <p>{{ report[1] }}</p>
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <div class="card">
+
+            <p>No medical reports uploaded yet.</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

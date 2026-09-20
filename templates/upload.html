@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Medical Report | JP Arogya AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>🏥 JP Arogya AI</h2>
+
+        <div>
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/chat">AI Chat</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="form-container">
+
+        <h1>📄 Upload Medical Report</h1>
+
+        <p style="text-align:center;margin-bottom:20px;">
+
+            Upload Blood Report, Prescription or X-Ray.
+
+        </p>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+
+            <input type="file" name="report" accept=".pdf,.png,.jpg,.jpeg" required>
+
+            <button type="submit">
+
+                Analyze Report
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    {% if filename %}
+
+    <div class="dashboard">
+
+        <div class="card">
+
+            <h2>📄 Uploaded File</h2>
+
+            <p>{{ filename }}</p>
+
+        </div>
+
+        <br>
+
+        <div class="card">
+
+            <h2>🤖 JP Arogya AI Analysis</h2>
+
+            <p style="white-space: pre-wrap; text-align:left;">
+
+                {{ result }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</body>
+
+</html>

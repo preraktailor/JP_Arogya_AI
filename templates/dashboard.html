@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | JP Arogya AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>🏥 JP Arogya AI</h2>
+
+        <div>
+
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="dashboard">
+
+        <h1>Welcome, {{ user.name }} 👋</h1>
+
+        <p>
+
+            Your personal AI Health Assistant is ready.
+
+        </p>
+
+
+        <div class="card-container">
+
+            <div class="card">
+
+                <h2>💬 AI Chat</h2>
+
+                <p>
+
+                    Ask health related questions using AI.
+
+                </p>
+
+                <a href="/chat">
+                    <button>Open Chat</button>
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>📄 Upload Medical Report</h2>
+
+                <p>
+
+                    Upload Blood Test, X-Ray or Prescription.
+
+                </p>
+
+                <a href="/upload">
+                    <button>Upload Report</button>
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>📚 Medical Knowledge</h2>
+
+                <p>
+
+                    Search trusted medical PDF documents.
+
+                </p>
+
+                <a href="/rag">
+                    <button>Open RAG</button>
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>🕒 Chat History</h2>
+
+                <p>
+
+                    View previous conversations.
+
+                </p>
+
+                <a href="/history">
+                    <button>View History</button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

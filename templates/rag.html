@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Knowledge | JP Arogya AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>🏥 JP Arogya AI</h2>
+
+        <div>
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/chat">AI Chat</a>
+            <a href="/history">History</a>
+            <a href="/upload">Upload</a>
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+    <div class="dashboard">
+
+        <h1>📚 Medical Knowledge Search</h1>
+
+        <p>
+            Search trusted medical PDF documents using AI.
+        </p>
+
+        <div class="form-container">
+
+            <form action="/rag" method="POST">
+
+                <input type="text" name="question" placeholder="Example: What is diabetes?" required>
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+
+        </div>
+
+        {% if question %}
+
+        <div class="card">
+
+            <h2>🙋 Your Question</h2>
+
+            <p>{{ question }}</p>
+
+            <hr style="margin:20px 0;">
+
+            <h2>🤖 JP Arogya AI</h2>
+
+            <p style="white-space:pre-wrap;">
+                {{ answer }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

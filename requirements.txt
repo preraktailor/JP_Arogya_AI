@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+jinja2
+python-multipart
+itsdangerous
+python-dotenv
+
+google-genai
+
+pypdf
+faiss-cpu
+sentence-transformers
+
+pillow
+pytesseract
+
+bcrypt

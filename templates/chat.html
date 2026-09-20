@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Chat | JP Arogya AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>🏥 JP Arogya AI</h2>
+
+        <div>
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="dashboard">
+
+        <h1>🤖 AI Health Chat</h1>
+
+        <p>
+
+            Ask any health-related question.
+
+        </p>
+
+
+        <form action="/chat" method="POST">
+
+            <input type="text" name="question" placeholder="Example: What is fever?" required>
+
+            <button type="submit">
+
+                Ask AI
+
+            </button>
+
+        </form>
+
+
+        {% if question %}
+
+        <div class="card">
+
+            <h2>🙋 Your Question</h2>
+
+            <p>
+
+                {{ question }}
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        {% if answer %}
+
+        <div class="card">
+
+            <h2>🤖 JP Arogya AI</h2>
+
+            <p>
+
+                {{ answer }}
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
